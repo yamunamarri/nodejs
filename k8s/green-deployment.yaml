@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-node-app
+      version: green
+  template:
+    metadata:
+      labels:
+        app: my-node-app
+        version: green
+    spec:
+      containers:
+      - name: my-node-app
+        image: yamunasurekha1999778/nodejs:v2
+        ports:
+        - containerPort: 3000

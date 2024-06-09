@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-node-app
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: my-node-app
+        version: blue
+    spec:
+      containers:
+      - name: my-node-app
+        image: yamunasurekha1999778/nodejs:v1
+        ports:
+        - containerPort: 3000
